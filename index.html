@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>爱车保-车主专享包-4S店售后活动模型理解能力评估测试</title>
+<style>
+:root{--ink:#0e2742;--sub:#5a7088;--brand:#0b5fff;--brand2:#00b8a9;--line:#e2eaf3;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;min-height:100vh;background:linear-gradient(150deg,#081d3a 0%,#0b3d7a 52%,#0b5fff 100%);color:var(--ink);display:flex;align-items:center;justify-content:center;padding:22px}
+.glow{position:fixed;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(0,184,169,.32),transparent 70%);top:-90px;right:-80px;pointer-events:none}
+.card{position:relative;width:100%;max-width:560px;background:#fff;border-radius:24px;padding:34px 28px 28px;box-shadow:0 30px 80px rgba(3,15,35,.45)}
+.kicker{display:inline-block;font-size:12px;letter-spacing:1.5px;color:var(--brand);background:#eaf1ff;border:1px solid #d4e2ff;padding:5px 12px;border-radius:999px;font-weight:700;margin-bottom:16px}
+h1{font-size:23px;line-height:1.45;font-weight:800;color:var(--ink);margin-bottom:12px}
+.lead{font-size:14.5px;color:var(--sub);line-height:1.8;margin-bottom:20px}
+.meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.meta div{background:#f5f9ff;border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.meta b{display:block;font-size:19px;color:var(--brand);font-weight:800}
+.meta span{font-size:12px;color:var(--sub)}
+.tips{background:#f7fafc;border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:13px;color:#43586e;line-height:1.9;margin-bottom:24px}
+.tips b{color:var(--ink)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,var(--brand),#0a47c4);color:#fff;font-size:17px;font-weight:800;padding:16px;border-radius:14px;box-shadow:0 12px 26px rgba(11,95,255,.38);transition:transform .12s ease}
+.btn:active{transform:scale(.985)}
+.foot{margin-top:16px;text-align:center;font-size:12px;color:#93a4b7}
+.err{display:none;margin-top:12px;font-size:12.5px;color:#c0392b;background:#fdecea;border:1px solid #f5c6c0;border-radius:10px;padding:9px 12px}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<main class="card">
+  <span class="kicker">爱车保 · 车主专享包 · 渠道顾问评估</span>
+  <h1>4S店售后活动模型理解能力评估测试</h1>
+  <p class="lead">覆盖售后产值、客户维系、保险钣喷、数据判读，以及售后成本理解与套餐包装谈判。请结合门店真实经营独立作答。</p>
+  <div class="meta">
+    <div><b>50</b><span>道题</span></div>
+    <div><b>100</b><span>分满分</span></div>
+    <div><b>15-20</b><span>分钟</span></div>
+  </div>
+  <div class="tips">
+    <b>计时说明：</b>点击下方按钮进入试卷时自动记录开始时间，提交后系统统计答题用时、每题平均秒数与用时区间。<br>
+    作答中途退出或长时间停留会影响用时统计，请尽量一次性完成；答案与成绩仅用于能力评估和培训安排。
+  </div>
+  <button class="btn" id="startBtn" type="button">开始答题并计时 →</button>
+  <div class="err" id="err">跳转失败，请截图联系组织人员；也可直接使用原表单链接作答（该方式不记录用时）。</div>
+  <p class="foot">进入后请填写姓名、门店/区域、岗位与从业年限</p>
+</main>
+<script>
+(function(){
+  var FORM_URL = "https://my.feishu.cn/share/base/shrcnAynlxEr77KktyCFSDHgQed";
+  function pad(n){ return n < 10 ? "0" + n : "" + n; }
+  function nowText(){
+    var d = new Date();
+    return d.getFullYear() + "-" + pad(d.getMonth()+1) + "-" + pad(d.getDate()) +
+      " " + pad(d.getHours()) + ":" + pad(d.getMinutes()) + ":" + pad(d.getSeconds());
+  }
+  document.getElementById("startBtn").addEventListener("click", function(){
+    try{
+      var t = nowText();
+      var url = FORM_URL + "?prefill_" + encodeURIComponent("开始时间") + "=" + encodeURIComponent(t);
+      window.location.href = url;
+    }catch(e){
+      document.getElementById("err").style.display = "block";
+    }
+  });
+})();
+</script>
+</body>
+</html>
